@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/', include('pais.urls')),  # Include URLs for the pais app
     path('api/', include('banco.urls')),  # Include URLs for the banco app
     path('api/', include('rubricaEstado.urls')),
+    path('api/', include('unidadeOrganica.urls')),
 ]

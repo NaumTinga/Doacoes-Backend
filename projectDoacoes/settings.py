@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "pais",
     "banco",
     "rubricaEstado",
+    "unidadeOrganica",
 ]
 
 MIDDLEWARE = [
