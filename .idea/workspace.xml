@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeedf282-35a7-41cd-9cf3-01e33d909059" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Doacoes.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moeda/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moeda/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pais/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectDoacoes/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectDoacoes/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectDoacoes/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectDoacoes/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectDoacoes/wsgi.py" afterDir="false" />
+    <list default="true" id="aeedf282-35a7-41cd-9cf3-01e33d909059" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/rubricaEstado/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rubricaEstado/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectDoacoes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectDoacoes/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectDoacoes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectDoacoes/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/rubricaEstado/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rubricaEstado/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,11 +100,24 @@
       <workItem from="1717062938245" duration="97000" />
       <workItem from="1717128238029" duration="57000" />
       <workItem from="1717487511369" duration="3322000" />
-      <workItem from="1717571270562" duration="10258000" />
+      <workItem from="1717571270562" duration="11452000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1717633585640</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717633585640</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
 </project>

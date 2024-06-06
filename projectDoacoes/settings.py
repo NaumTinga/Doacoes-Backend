@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     "moeda",
     "pais",
-    "banco"
+    "banco",
+    "rubricaEstado",
 ]
 
 MIDDLEWARE = [
