@@ -38,11 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    "moeda",
-    "pais",
-    "banco",
-    "rubricaEstado",
-    "unidadeOrganica",
+    "api",
 ]
 
 MIDDLEWARE = [

@@ -4,13 +4,79 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeedf282-35a7-41cd-9cf3-01e33d909059" name="Changes" comment="Added Postman collection and Rubrica Estado app">
-      <change afterPath="$PROJECT_DIR$/unidadeOrganica/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unidadeOrganica/urls.py" afterDir="false" />
+    <list default="true" id="aeedf282-35a7-41cd-9cf3-01e33d909059" name="Changes" comment="Added Unidade Organica, added tipoRubrica attribute in Rubrica Estado">
+      <change afterPath="$PROJECT_DIR$/api/serializers/conta_central_serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/serializers/coordenador_serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/serializers/moeda_serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/serializers/pais_serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/serializers/rubrica_estado_serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/serializers/unidade_organica_serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/urls/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/urls/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/banco_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/conta_central_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/coordenador_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/moeda_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/pais_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/rubrica_estado_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/unidade_organica_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/banco.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/conta_central.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/coordenador.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moeda/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/moeda.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/migrations/0002_pais_created_at_pais_updated_at.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/pais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pais/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projectDoacoes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectDoacoes/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectDoacoes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectDoacoes/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rubricaEstado/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rubricaEstado/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/rubrica_estado.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/migrations/0002_alter_rubricaestado_codigo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/migrations/0003_rubricaestado_tiporubrica.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/unidade_organica.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubricaEstado/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers/banco_serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unidadeOrganica/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +112,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/naumtinga/PycharmProjects/Doacoes/api/migrations",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,6 +121,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/migrations" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Doacoes" type="Python.DjangoServer" factoryName="Django server">
       <module name="Doacoes" />
@@ -99,7 +171,8 @@
       <workItem from="1717062938245" duration="97000" />
       <workItem from="1717128238029" duration="57000" />
       <workItem from="1717487511369" duration="3322000" />
-      <workItem from="1717571270562" duration="12871000" />
+      <workItem from="1717571270562" duration="15555000" />
+      <workItem from="1717767504765" duration="25557000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -117,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717634611484</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Unidade Organica, added tipoRubrica attribute in Rubrica Estado">
+      <option name="closed" value="true" />
+      <created>1717636091150</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717636091150</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +207,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="Added Postman collection and Rubrica Estado app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Postman collection and Rubrica Estado app" />
+    <MESSAGE value="Added Unidade Organica, added tipoRubrica attribute in Rubrica Estado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Unidade Organica, added tipoRubrica attribute in Rubrica Estado" />
   </component>
 </project>
