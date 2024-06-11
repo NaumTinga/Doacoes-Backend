@@ -25,10 +25,10 @@ class Project(models.Model):
     def clean(self):
         super().clean()
         if self.valor > self.financiamento.valor:
-            raise ValidationError(_('Project value cannot be greater than the financing value.'))
+            raise ValidationError(_('Valor do Projecto não pode ser maior que o valor do Financiamento.'))
 
         if self.data_inicio < self.financiamento.data_inicio or self.data_fim > self.financiamento.data_fim:
-            raise ValidationError(_('Project dates must be within the financing period.'))
+            raise ValidationError(_('As datas do Projecto devem estar dentro do período das datas do Financiamento.'))
 
     # def save(self, *args, **kwargs):
     #     self.clean()
