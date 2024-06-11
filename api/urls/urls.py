@@ -11,6 +11,7 @@ from api.views.rubrica_estado_views import RubricaEstadoViewSet
 from api.views.cambio_views import CambioViewSet
 from api.views.financiador_views import FinanciadorViewSet
 from api.views.rubrica_financiador_views import RubricaFinanciadorViewSet
+from api.views.financiamento_views import FinanciamentoViewSet
 
 
 router = DefaultRouter()
@@ -24,6 +25,7 @@ router.register(r'rubricaEstado', RubricaEstadoViewSet)
 router.register(r'cambio', CambioViewSet)
 router.register(r'financiador', FinanciadorViewSet)
 router.register(r'rubricaFinanciador', RubricaFinanciadorViewSet)
+router.register(r'financiamento', FinanciamentoViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
