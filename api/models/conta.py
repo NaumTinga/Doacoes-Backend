@@ -4,7 +4,7 @@ from api.models import banco, moeda
 
 
 # Create your models here.
-class ContaCentral(models.Model):
+class Conta(models.Model):
     id = models.AutoField(primary_key=True)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     designacao = models.CharField(max_length=255)

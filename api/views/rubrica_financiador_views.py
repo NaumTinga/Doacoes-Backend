@@ -1,15 +1,13 @@
-from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from api.models.conta_central import ContaCentral
-from api.serializers.conta_central_serializers import ContaCentralSerializer
+from api.models.rubrica_financiador import RubricaFinanciador
+from api.serializers.rubrica_financiador_serializers import RubricaFinanciadorSerializer
 
 
-# Create your views here.
-class ContaCentralViewSet(viewsets.ModelViewSet):
-    queryset = ContaCentral.objects.all()
-    serializer_class = ContaCentralSerializer
+class RubricaFinanciadorViewSet(viewsets.ModelViewSet):
+    queryset = RubricaFinanciador.objects.all()
+    serializer_class = RubricaFinanciadorSerializer
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -22,4 +20,3 @@ class ContaCentralViewSet(viewsets.ModelViewSet):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-
