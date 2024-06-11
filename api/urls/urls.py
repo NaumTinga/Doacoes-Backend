@@ -9,6 +9,7 @@ from api.views.unidade_organica_views import UnidadeOrganicaViewSet
 from api.views.coordenador_views import CoordenadorViewSet
 from api.views.rubrica_estado_views import RubricaEstadoViewSet
 from api.views.cambio_views import CambioViewSet
+from api.views.financiador_views import FinanciadorViewSet
 
 
 router = DefaultRouter()
@@ -20,6 +21,7 @@ router.register(r'unidadeOrganica', UnidadeOrganicaViewSet)
 router.register(r'coordenador', CoordenadorViewSet)
 router.register(r'rubricaEstado', RubricaEstadoViewSet)
 router.register(r'cambio', CambioViewSet)
+router.register(r'financiador', FinanciadorViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
