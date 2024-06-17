@@ -1,13 +1,13 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from api.models.projecto import Projecto
-from api.serializers.projecto_serializers import ProjectoSerializer
+from api.models.sub_projecto import SubProjecto
+from api.serializers.sub_projecto_serializers import SubProjectoSerializer
 
 
-class ProjectoViewSet(viewsets.ModelViewSet):
-    queryset = Projecto.objects.all()
-    serializer_class = ProjectoSerializer
+class SubProjectoViewSet(viewsets.ModelViewSet):
+    queryset = SubProjecto.objects.all()
+    serializer_class = SubProjectoSerializer
 
     # Customizing the queryset for the get by id operation
     def retrieve(self, request, *args, **kwargs):

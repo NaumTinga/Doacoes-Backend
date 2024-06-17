@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from api.models.projecto import Project
+from api.models.projecto import Projecto
 
 
-class ProjectSerializer(serializers.ModelSerializer):
+class ProjectoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Project
+        model = Projecto
         fields = '__all__'
