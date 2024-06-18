@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from api.models import projecto, actividade
+from api.models import projecto, actividade, beneficiario
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.utils.translation import gettext_lazy as _
@@ -12,8 +12,8 @@ class SubProjecto(models.Model):
     projecto = models.ForeignKey(projecto.Projecto, on_delete=models.PROTECT, related_name='projecto')
     descricao = models.CharField(max_length=255)
     valor = models.DecimalField(max_digits=20, decimal_places=3)
-    activade = models.ForeignKey(actividade.Actividade, on_delete=models.PROTECT, related_name='actividade')
-    # beneficiario = models.ForeignKey(beneficiario.Beneficiario, on_delete=models.PROTECT, related_name='beneficiario')
+    activade = models.ForeignKey(actividade.Actividade, on_delete=models.PROTECT, related_name='actividade', null=True)
+    beneficiario = models.ForeignKey(beneficiario.Beneficiario, on_delete=models.PROTECT, related_name='beneficiario', null=True)
     data_inicio = models.DateField()
     data_fim = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
