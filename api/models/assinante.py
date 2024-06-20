@@ -18,3 +18,7 @@ class Assinante(models.Model):
     conta = models.ForeignKey(conta.Conta, on_delete=models.PROTECT, related_name='assinante_conta')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.nome
