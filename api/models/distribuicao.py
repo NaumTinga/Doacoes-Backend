@@ -4,7 +4,7 @@ import uuid
 from rest_framework.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-from api.models import rubrica_estado, rubrica_financiador, sub_projecto
+from api.models import rubrica_estado, rubrica_financiador, sub_projecto, moeda
 
 
 class Eixo(models.TextChoices):
@@ -33,6 +33,8 @@ class Distribuicao(models.Model):
                                             related_name='distribuica_rubrica_financiador', null=True)
     sub_projecto = models.ForeignKey(sub_projecto.SubProjecto, on_delete=models.PROTECT, null=False, blank=False,
                                      related_name='distribuicao_sub_projecto')
+    # Associar a moeda do financiador, pegar os dados no frontend e associar
+    moeda_financiamento = models.ForeignKey(moeda.Moeda, on_delete=models.PROTECT, related_name='moeda_financiamento', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

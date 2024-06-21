@@ -12,7 +12,7 @@ class SubProjecto(models.Model):
     projecto = models.ForeignKey(projecto.Projecto, on_delete=models.PROTECT, related_name='projecto')
     descricao = models.CharField(max_length=255)
     valor = models.DecimalField(max_digits=20, decimal_places=3)
-    activade = models.ForeignKey(actividade.Actividade, on_delete=models.PROTECT, related_name='actividade', null=True)
+    actividade = models.ForeignKey(actividade.Actividade, on_delete=models.PROTECT, related_name='actividade', null=True)
     beneficiario = models.ForeignKey(beneficiario.Beneficiario, on_delete=models.PROTECT, related_name='beneficiario', null=True)
     data_inicio = models.DateField()
     data_fim = models.DateField()
