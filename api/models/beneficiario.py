@@ -25,11 +25,11 @@ class Beneficiario(models.Model):
     nacionalidade = models.CharField(max_length=255, null=True)
     nuit = models.BigIntegerField(null=True, unique=True)
     nivel_academico = models.CharField(
-        max_length=50,
+        max_length=100,
         choices=NivelAcademico.choices,
         null=True
     )
-    sexo = models.CharField(max_length=50, null=True, choices=Sexo.choices)
+    sexo = models.CharField(max_length=100, null=True, choices=Sexo.choices)
     unidade_organica = models.ForeignKey(unidade_organica.UnidadeOrganica, on_delete=models.PROTECT, null=True,
                                          related_name='beneficiarios')
     # conta = models.ForeignKey(conta.Conta, on_delete=models.PROTECT, null=True, related_name='beneficiario_contas')

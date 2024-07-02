@@ -9,7 +9,7 @@ class Financiador(models.Model):
     nome = models.CharField(max_length=255)
     email = models.EmailField(unique=True, null=True)
     endereco = models.CharField(max_length=255, null=True)
-    celular = models.BigIntegerField(null=True)
+    telefone = models.BigIntegerField(null=True)
     pais = models.ForeignKey(pais.Pais, on_delete=models.PROTECT, null=True,
                              related_name='pais')
     created_at = models.DateTimeField(auto_now_add=True)
