@@ -10,7 +10,8 @@ class FinanciamentoSerializer(serializers.ModelSerializer):
         model = Financiamento
         fields = '__all__'
 
-   # This is to list the related classes objects not just the id's
+
+# This is to list the related classes objects not just the id's
 class ListFinanciamentoSerializer(serializers.ModelSerializer):
     moeda_financiador = MoedaSerializer(read_only=True)
     financiador = FinanciadorSerializer(read_only=True)
