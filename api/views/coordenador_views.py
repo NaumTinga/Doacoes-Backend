@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from api.models.coordenador import Coordenador
-from api.serializers.coordenador_serializers import CoordenadorSerializer
+from api.serializers.coordenador_serializers import CoordenadorSerializer, ListCoordenadorSerializer
 
 
 class CoordenadorViewSet(viewsets.ModelViewSet):
@@ -16,7 +16,13 @@ class CoordenadorViewSet(viewsets.ModelViewSet):
 
         # Customizing the queryset for the list all operation
 
+    # def list(self, request, *args, **kwargs):
+    #     queryset = self.filter_queryset(self.get_queryset())
+    #     serializer = self.get_serializer(queryset, many=True)
+    #     return Response(serializer.data)
+
+    # This is to list the related classes objects not just the id's
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
+        serializer = ListCoordenadorSerializer(queryset, many=True)
         return Response(serializer.data)

@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from api.models.financiador import Financiador
-from api.serializers.financiador_serializers import FinanciadorSerializer
+from api.serializers.financiador_serializers import FinanciadorSerializer, ListaFinanciadorSerializer
 
 
 class FinanciadorViewSet(viewsets.ModelViewSet):
@@ -16,7 +16,12 @@ class FinanciadorViewSet(viewsets.ModelViewSet):
 
         # Customizing the queryset for the list all operation
 
+    # def list(self, request, *args, **kwargs):
+    #     queryset = self.filter_queryset(self.get_queryset())
+    #     serializer = self.get_serializer(queryset, many=True)
+    #     return Response(serializer.data)
+    # This is to list the related classes objects not just the id's
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
+        serializer = ListaFinanciadorSerializer(queryset, many=True)
         return Response(serializer.data)
