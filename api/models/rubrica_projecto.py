@@ -41,12 +41,16 @@ class RubricaProjecto(models.Model):
             if projecto.valor < 0:
                 raise ValidationError(_('Projecto value cannot be negative.'))
 
-            projecto.save()
+            projecto.save_without_validation()
+            super().save(*args, **kwargs)
+
+    def save_without_validation(self, *args, **kwargs):
+        with transaction.atomic():
             super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
         with transaction.atomic():
             projecto = self.projecto
             projecto.valor += (self.valor or 0)
-            projecto.save()
+            projecto.save_without_validation()
             super().delete(*args, **kwargs)

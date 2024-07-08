@@ -21,6 +21,7 @@ from api.views.assinante_views import AssinanteViewSet
 from api.views.fornecedor_views import FornecedorViewSet
 from api.views.requisicao_views import RequisicaoViewSet
 from api.views.rubrica_projecto_views import RubricaProjectoViewSet
+from api.views.sub_rubrica_views import SubRubricaViewSet
 
 router = DefaultRouter()
 router.register(r'banco', BancoViewSet)
@@ -43,6 +44,7 @@ router.register(r'assinante', AssinanteViewSet)
 router.register(r'fornecedor', FornecedorViewSet)
 router.register(r'requisicao', RequisicaoViewSet)
 router.register(r'rubricaProjecto', RubricaProjectoViewSet)
+router.register(r'subRubrica', SubRubricaViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

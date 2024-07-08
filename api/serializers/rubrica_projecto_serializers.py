@@ -9,6 +9,8 @@ class RubricaProjectoSerializer(serializers.ModelSerializer):
 
 
 class ListaRubricaProjectoSerializer(serializers.ModelSerializer):
+    projecto = serializers.StringRelatedField()
+
     class Meta:
         model = RubricaProjecto
         fields = '__all__'
