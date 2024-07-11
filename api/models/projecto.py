@@ -1,5 +1,5 @@
 from django.db import models
-from api.models import coordenador, financiamento
+from api.models import coordenador, financiamento, moeda
 import uuid
 from django.core.exceptions import ValidationError
 from django.db import transaction
@@ -15,6 +15,8 @@ class Projecto(models.Model):
     data_fim = models.DateField()
     financiamento = models.ForeignKey(financiamento.Financiamento, on_delete=models.PROTECT,
                                       related_name='financiamento')
+    moeda_projecto = models.ForeignKey(moeda.Moeda, on_delete=models.PROTECT, related_name='moeda_projecto',
+                                        null=True)
     coordenador = models.ForeignKey(coordenador.Coordenador, on_delete=models.PROTECT, related_name='coordenador')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -32,6 +34,11 @@ class Projecto(models.Model):
 
     def save(self, *args, **kwargs):
         self.clean()
+
+        # Set moeda_projecto to the same as moeda_financiamento if not provided
+        if not self.moeda_projecto:
+            self.moeda_projecto = self.financiamento.moeda_financiador
+
         with transaction.atomic():
             financiamento = self.financiamento
 

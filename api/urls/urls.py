@@ -1,4 +1,4 @@
-# banco/urls.py
+
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from api.views.banco_views import BancoViewSet
@@ -22,6 +22,7 @@ from api.views.fornecedor_views import FornecedorViewSet
 from api.views.requisicao_views import RequisicaoViewSet
 from api.views.rubrica_projecto_views import RubricaProjectoViewSet
 from api.views.sub_rubrica_views import SubRubricaViewSet
+from api.views.requisicao_rubrica_views import RequisicaoRubricaViewSet
 
 router = DefaultRouter()
 router.register(r'banco', BancoViewSet)
@@ -45,6 +46,7 @@ router.register(r'fornecedor', FornecedorViewSet)
 router.register(r'requisicao', RequisicaoViewSet)
 router.register(r'rubricaProjecto', RubricaProjectoViewSet)
 router.register(r'subRubrica', SubRubricaViewSet)
+router.register(r'requisicaoRubrica', RequisicaoRubricaViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

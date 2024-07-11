@@ -9,6 +9,7 @@ class Financiamento(models.Model):
     data_inicio = models.DateField()
     data_fim = models.DateField()
     valor = models.DecimalField(max_digits=50, decimal_places=3)
+    valor_atribuido = models.DecimalField(max_digits=50, decimal_places=3, null=True)
     conta_destino = models.ForeignKey(conta.Conta, on_delete=models.PROTECT, related_name='conta_destino')
     descricao = models.CharField(max_length=255)
     conta_origem = models.ForeignKey(conta.Conta, on_delete=models.PROTECT, related_name='conta_origem')
@@ -21,3 +22,4 @@ class Financiamento(models.Model):
 
     def __str__(self):
         return self.descricao
+

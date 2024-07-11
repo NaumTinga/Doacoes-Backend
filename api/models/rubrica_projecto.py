@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from api.models import projecto
+from api.models import projecto, moeda
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.utils.translation import gettext_lazy as _
@@ -13,6 +13,8 @@ class RubricaProjecto(models.Model):
     nome = models.CharField(max_length=55)
     valor = models.DecimalField(max_digits=20, decimal_places=3, null=True)
     projecto = models.ForeignKey(projecto.Projecto, on_delete=models.PROTECT, related_name='rubrica_projectos')
+    moeda_rubrica = models.ForeignKey(moeda.Moeda, on_delete=models.PROTECT, related_name='moeda_rubrica',
+                                      null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -26,6 +28,11 @@ class RubricaProjecto(models.Model):
 
     def save(self, *args, **kwargs):
         self.clean()
+
+        # Set moeda_projecto to the same as moeda_projecto if not provided
+        if not self.moeda_rubrica:
+            self.moeda_rubrica = self.projecto.moeda_projecto
+
         with transaction.atomic():
             projecto = self.projecto
 
