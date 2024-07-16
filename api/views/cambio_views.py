@@ -2,7 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from api.models.cambio import Cambio
-from api.serializers.cambio_serializers import CambioSerializer, CambioItemSerializer
+from api.serializers.cambio_serializers import CambioSerializer, CambioItemSerializer, ListCambioSerializer
 
 
 class CambioViewSet(viewsets.ModelViewSet):
@@ -43,11 +43,11 @@ class CambioViewSet(viewsets.ModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
-        serializer = self.get_serializer(instance)
+        serializer = ListCambioSerializer(instance)
         return Response(serializer.data)
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
+        serializer = ListCambioSerializer(queryset, many=True)
         return Response(serializer.data)
 

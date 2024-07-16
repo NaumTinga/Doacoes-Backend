@@ -46,8 +46,8 @@ class RequisicaoRubrica(models.Model):
 
     def clean(self):
         super().clean()
-        if self.sub_rubrica and self.valor_total:
-            if self.valor_total > self.sub_rubrica.valor:
+        if self.sub_rubrica and self.valor_convertido is not None:
+            if self.valor_convertido > self.sub_rubrica.valor:
                 raise ValidationError(_('Valor total não pode ser maior que o valor da Sub Rubrica'))
 
     def save(self, *args, **kwargs):
@@ -56,15 +56,18 @@ class RequisicaoRubrica(models.Model):
         # Perform currency conversion if necessary
         if self.moeda_requisicao and self.moeda_distribuicao and self.moeda_requisicao != self.moeda_distribuicao:
             exchange_rate = Cambio.get_exchange_rate(self.moeda_distribuicao, self.moeda_requisicao)
-            self.valor_total = self.valor * exchange_rate
+            self.valor_convertido = self.valor_inicial * exchange_rate
+
+        if self.valor_convertido is None:
+            self.valor_convertido = self.valor_inicial  # Default to valor_inicial if no conversion is needed
 
         with transaction.atomic():
             if self.pk is not None:
                 original_requisicao = RequisicaoRubrica.objects.get(pk=self.pk)
-                valor_difference = self.valor_total - original_requisicao.valor_total
+                valor_difference = self.valor_convertido - (original_requisicao.valor_convertido or 0)
                 self.sub_rubrica.valor -= valor_difference
             else:
-                self.sub_rubrica.valor -= self.valor_total
+                self.sub_rubrica.valor -= self.valor_convertido
 
             if self.sub_rubrica.valor < 0:
                 raise ValidationError(_('Valor da Sub Rubrica não pode ser negativa'))
@@ -74,6 +77,6 @@ class RequisicaoRubrica(models.Model):
 
     def delete(self, *args, **kwargs):
         with transaction.atomic():
-            self.sub_rubrica.valor += self.valor_total
+            self.sub_rubrica.valor += self.valor_convertido or 0
             self.sub_rubrica.save()
             super().delete(*args, **kwargs)
