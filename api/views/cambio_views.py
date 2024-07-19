@@ -11,6 +11,7 @@ class CambioViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def get_most_recent_cambio(self, request):
+        # get_most_recent_cambio /?moeda_base = 1 & moeda_alvo = 2 // este é o link para testar o endpoint
         # Get user-provided values
         moeda_base = request.query_params.get('moeda_base')
         moeda_alvo = request.query_params.get('moeda_alvo')
@@ -27,7 +28,11 @@ class CambioViewSet(viewsets.ModelViewSet):
             serializer = CambioSerializer(most_recent_cambio)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Cambio.DoesNotExist:
-            return Response({'message': 'Cambio object not found.'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'message': 'Cambio não encontrado.'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            # Log the error for debugging
+            print(f"Erro inesperado: {str(e)}")
+            return Response({'message': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def get_serializer_class(self):
         if self.action == 'create_bulk':
@@ -50,4 +55,3 @@ class CambioViewSet(viewsets.ModelViewSet):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = ListCambioSerializer(queryset, many=True)
         return Response(serializer.data)
-

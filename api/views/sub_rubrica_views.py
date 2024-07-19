@@ -11,7 +11,7 @@ class SubRubricaViewSet(viewsets.ModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
-        serializer = SubRubricaSerializer(instance)
+        serializer = ListSubRubricaSerializer(instance)
         return Response(serializer.data)
 
         # Customizing the queryset for the list all operation

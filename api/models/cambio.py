@@ -28,3 +28,4 @@ class Cambio(models.Model):
             return cambio.taxa
         except Cambio.DoesNotExist:
             raise ValidationError(_('Exchange rate not found for the given currencies.'))
+
