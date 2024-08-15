@@ -23,6 +23,8 @@ from api.views.requisicao_views import RequisicaoViewSet
 from api.views.rubrica_projecto_views import RubricaProjectoViewSet
 from api.views.sub_rubrica_views import SubRubricaViewSet
 from api.views.requisicao_rubrica_views import RequisicaoRubricaViewSet
+from api.views.ordem_pagamento_rubrica_views import OrderPagamentoRubricaViewSet
+# from api.views.reports.requisicao_report_views import generate_pdf
 
 router = DefaultRouter()
 router.register(r'banco', BancoViewSet)
@@ -47,10 +49,13 @@ router.register(r'requisicao', RequisicaoViewSet)
 router.register(r'rubricaProjecto', RubricaProjectoViewSet)
 router.register(r'subRubrica', SubRubricaViewSet)
 router.register(r'requisicaoRubrica', RequisicaoRubricaViewSet)
+router.register(r'ordem-pagamento', OrderPagamentoRubricaViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),
     path('cambio/create_bulk/', CambioViewSet.as_view({'post': 'create_bulk'}), name='create_bulk_cambio'),
     path('cambio/get_most_recent_cambio/', CambioViewSet.as_view({'get': 'get_most_recent_cambio'}),
          name='get_most_recent_cambio'),
+    # path('generate_pdf/', generate_pdf, name='generate_pdf'),
 ]

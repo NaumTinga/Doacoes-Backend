@@ -15,7 +15,7 @@ class Assinante(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     nome = models.CharField(max_length=255)
     tipo_assinante = models.CharField(max_length=20, choices=TipoAssinante, null=True)
-    conta = models.ForeignKey(conta.Conta, on_delete=models.PROTECT, related_name='assinante_conta')
+    conta = models.ForeignKey(conta.Conta, on_delete=models.PROTECT, related_name='assinante_conta', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

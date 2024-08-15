@@ -36,7 +36,7 @@ class Requisicao(models.Model):
     valor_total = models.DecimalField(max_digits=20, decimal_places=3)
     estado_pagamento = models.CharField(max_length=255, choices=EstadoPagamento, default=EstadoPagamento.ACTIVA)
     # calcular no front
-    valor_moeda_distribuicao = models.DecimalField(max_digits=20, decimal_places=3)
+    valor_moeda_distribuicao = models.DecimalField(max_digits=20, decimal_places=3, null=True)
     # associar no front
     moeda_distribuicao = models.ForeignKey(moeda.Moeda, on_delete=models.PROTECT, related_name='moeda_distribuicao', null=True)
     # distribuicao = models.ForeignKey(distribuicao.Distribuicao, on_delete=models.PROTECT, related_name='distribuicao_requisicao')
