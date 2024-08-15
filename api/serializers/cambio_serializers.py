@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from api.models.cambio import Cambio
+from api.serializers.moeda_serializers import MoedaSerializer
 
 
 class CambioSerializer(serializers.ModelSerializer):
@@ -7,6 +8,13 @@ class CambioSerializer(serializers.ModelSerializer):
         model = Cambio
         fields = '__all__'
 
+
+class ListCambioSerializer(serializers.ModelSerializer):
+    moeda_base = MoedaSerializer(read_only=True)
+    moeda_alvo = MoedaSerializer(read_only=True)
+    class Meta:
+        model = Cambio
+        fields = '__all__'
 
 
 class BulkCambioSerializer(serializers.ListSerializer):

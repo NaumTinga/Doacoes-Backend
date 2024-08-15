@@ -4,7 +4,7 @@ import uuid
 from rest_framework.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-from api.models import rubrica_estado, rubrica_financiador, sub_projecto
+from api.models import rubrica_estado, rubrica_financiador, sub_projecto, moeda, rubrica_projecto
 
 
 class Eixo(models.TextChoices):
@@ -28,11 +28,14 @@ class Distribuicao(models.Model):
         null=False, blank=False
     )
     rubrica_estado = models.ForeignKey(rubrica_estado.RubricaEstado, on_delete=models.PROTECT,
-                                       related_name='distribuica_rubrica_estado', null=False, blank=False)
+                                       related_name='distribuica_rubrica_estado', null=True, blank=False)
     rubrica_financiador = models.ForeignKey(rubrica_financiador.RubricaFinanciador, on_delete=models.PROTECT,
                                             related_name='distribuica_rubrica_financiador', null=True)
-    sub_projecto = models.ForeignKey(sub_projecto.SubProjecto, on_delete=models.PROTECT, null=False, blank=False,
+    sub_projecto = models.ForeignKey(sub_projecto.SubProjecto, on_delete=models.PROTECT, null=True, blank=False,
                                      related_name='distribuicao_sub_projecto')
+    rubrica_projecto = models.ForeignKey(rubrica_projecto.RubricaProjecto, on_delete=models.PROTECT, null=True, related_name='distribuicao_rubrica_projecto')
+    # Associar a moeda do financiador, pegar os dados no frontend e associar
+    moeda_financiamento = models.ForeignKey(moeda.Moeda, on_delete=models.PROTECT, related_name='moeda_financiamento', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

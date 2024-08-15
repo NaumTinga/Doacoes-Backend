@@ -2,7 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from api.models.cambio import Cambio
-from api.serializers.cambio_serializers import CambioSerializer, CambioItemSerializer
+from api.serializers.cambio_serializers import CambioSerializer, CambioItemSerializer, ListCambioSerializer
 
 
 class CambioViewSet(viewsets.ModelViewSet):
@@ -11,6 +11,7 @@ class CambioViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def get_most_recent_cambio(self, request):
+        # get_most_recent_cambio /?moeda_base = 1 & moeda_alvo = 2 // este é o link para testar o endpoint
         # Get user-provided values
         moeda_base = request.query_params.get('moeda_base')
         moeda_alvo = request.query_params.get('moeda_alvo')
@@ -27,7 +28,11 @@ class CambioViewSet(viewsets.ModelViewSet):
             serializer = CambioSerializer(most_recent_cambio)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Cambio.DoesNotExist:
-            return Response({'message': 'Cambio object not found.'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'message': 'Cambio não encontrado.'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            # Log the error for debugging
+            print(f"Erro inesperado: {str(e)}")
+            return Response({'message': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def get_serializer_class(self):
         if self.action == 'create_bulk':
@@ -43,11 +48,10 @@ class CambioViewSet(viewsets.ModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
-        serializer = self.get_serializer(instance)
+        serializer = ListCambioSerializer(instance)
         return Response(serializer.data)
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
+        serializer = ListCambioSerializer(queryset, many=True)
         return Response(serializer.data)
-
