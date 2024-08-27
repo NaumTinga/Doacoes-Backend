@@ -5,7 +5,7 @@ from api.models import conta, assinante, fornecedor, beneficiario, actividade, r
 
 class TipoOperacao(models.TextChoices):
     TRANSFERENCIA_BANCARIA = 'TRANSFERÊNCIA BANCÁRIA'
-    LEVANTAMENTO_NUMERARIO = 'LEVANTAMENTO NUMERARIO'
+    LEVANTAMENTO_NUMERARIO = 'LEVANTAMENTO NUMERÁRIO'
     CHEQUE = 'CHEQUE'
 
 

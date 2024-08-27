@@ -34,7 +34,7 @@ class RequisicaoRubrica(models.Model):
     data_emissao = models.DateField()
     valor_inicial = models.DecimalField(max_digits=20, decimal_places=3)
     valor_convertido = models.DecimalField(max_digits=20, decimal_places=3, null=True)
-    estado_pagamento = models.CharField(max_length=255, choices=EstadoPagamento, default=EstadoPagamento.PENDENTE)
+    estado_pagamento = models.CharField(max_length=255, choices=EstadoPagamento, default=EstadoPagamento.ACTIVA)
     valor_moeda_distribuicao = models.DecimalField(max_digits=20, decimal_places=3, null=True)
     moeda_distribuicao = models.ForeignKey(moeda.Moeda, on_delete=models.PROTECT,
                                            related_name='moeda_distribuicao_requisicao', null=True)
