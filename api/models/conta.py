@@ -7,6 +7,7 @@ from api.models import banco, moeda, beneficiario, financiador
 class Conta(models.Model):
     id = models.AutoField(primary_key=True)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    conta_central = models.BooleanField(default=False)
     designacao = models.CharField(max_length=255)
     nr_conta = models.IntegerField()
     nib = models.CharField(max_length=255, null=True)
