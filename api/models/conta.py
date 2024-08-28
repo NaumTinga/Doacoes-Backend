@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from api.models import banco, moeda, beneficiario, financiador
+from api.models import banco, moeda, beneficiario, financiador, unidade_organica, fornecedor
 
 
 # Create your models here.
@@ -18,7 +18,12 @@ class Conta(models.Model):
     moeda = models.ForeignKey(moeda.Moeda, on_delete=models.PROTECT, null=True, related_name='conta_moeda')
     beneficiario = models.ForeignKey(beneficiario.Beneficiario, on_delete=models.PROTECT, null=True,
                                      related_name='beneficiario_contas')
-    financiador = models.ForeignKey(financiador.Financiador, on_delete=models.PROTECT, null=True, related_name='conta_financiador')
+    unidade_organica = models.ForeignKey(unidade_organica.UnidadeOrganica, on_delete=models.PROTECT, null=True,
+                                         related_name='unidade_organica')
+    financiador = models.ForeignKey(financiador.Financiador, on_delete=models.PROTECT, null=True,
+                                    related_name='conta_financiador')
+    fornecedor = models.ForeignKey(fornecedor.Fornecedor, on_delete=models.PROTECT, null=True,
+                                   related_name='conta_fornecedor')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
