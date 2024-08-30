@@ -1,4 +1,3 @@
-
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from api.views.banco_views import BancoViewSet
@@ -24,6 +23,8 @@ from api.views.rubrica_projecto_views import RubricaProjectoViewSet
 from api.views.sub_rubrica_views import SubRubricaViewSet
 from api.views.requisicao_rubrica_views import RequisicaoRubricaViewSet
 from api.views.ordem_pagamento_rubrica_views import OrderPagamentoRubricaViewSet
+
+
 # from api.views.reports.requisicao_report_views import generate_pdf
 
 router = DefaultRouter()
@@ -50,7 +51,6 @@ router.register(r'rubricaProjecto', RubricaProjectoViewSet)
 router.register(r'subRubrica', SubRubricaViewSet)
 router.register(r'requisicaoRubrica', RequisicaoRubricaViewSet)
 router.register(r'ordem-pagamento', OrderPagamentoRubricaViewSet)
-
 
 urlpatterns = [
     path('', include(router.urls)),

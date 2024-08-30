@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.actividade import Actividade
@@ -6,6 +7,7 @@ from api.serializers.actividade_serializers import ActividadeSerializer
 
 
 class ActividadeViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Actividade.objects.all()
     serializer_class = ActividadeSerializer
 
