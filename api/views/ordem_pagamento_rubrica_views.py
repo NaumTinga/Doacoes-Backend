@@ -2,7 +2,8 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from api.models.ordem_pagamento_rubrica import OrderPagamentoRubrica
-from api.serializers.ordem_pagamento_rubrica_serializers import OrderPagamentoRubricaSerializer
+from api.serializers.ordem_pagamento_rubrica_serializers import OrderPagamentoRubricaSerializer, \
+    ListOrderPagamentoRubricaSerializer
 
 
 class OrderPagamentoRubricaViewSet(viewsets.ModelViewSet):
@@ -18,5 +19,5 @@ class OrderPagamentoRubricaViewSet(viewsets.ModelViewSet):
     # Customizing the queryset for the list all operation
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-        serializer = OrderPagamentoRubricaSerializer(queryset, many=True)
+        serializer = ListOrderPagamentoRubricaSerializer(queryset, many=True)
         return Response(serializer.data)
