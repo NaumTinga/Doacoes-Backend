@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.requisicao import Requisicao
@@ -6,6 +7,7 @@ from api.serializers.requisicao_serializers import RequisicaoSerializer
 
 
 class RequisicaoViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Requisicao.objects.all()
     serializer_class = RequisicaoSerializer
 

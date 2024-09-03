@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models import financiador
@@ -12,6 +13,7 @@ from api.serializers.financiamento_serializers import ListFinanciamentoSerialize
 
 
 class FinanciadorViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Financiador.objects.all()
     serializer_class = FinanciadorSerializer
 

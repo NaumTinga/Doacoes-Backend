@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.sub_projecto import SubProjecto
@@ -6,6 +7,7 @@ from api.serializers.sub_projecto_serializers import SubProjectoSerializer
 
 
 class SubProjectoViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = SubProjecto.objects.all()
     serializer_class = SubProjectoSerializer
 

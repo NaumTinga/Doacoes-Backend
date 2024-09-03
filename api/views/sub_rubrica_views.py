@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.sub_rubrica import SubRubrica
@@ -6,6 +7,7 @@ from api.serializers.sub_rubrica_serializers import SubRubricaSerializer, ListSu
 
 
 class SubRubricaViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = SubRubrica.objects.all()
     serializer_class = SubRubricaSerializer
 

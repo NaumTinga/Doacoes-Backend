@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.rubrica_estado import RubricaEstado
@@ -6,6 +7,7 @@ from api.serializers.rubrica_estado_serializers import RubricaEstadoSerializer
 
 
 class RubricaEstadoViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = RubricaEstado.objects.all()
     serializer_class = RubricaEstadoSerializer
 

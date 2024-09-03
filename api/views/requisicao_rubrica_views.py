@@ -1,5 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.requisicao_rubrica import RequisicaoRubrica, EstadoPagamento
@@ -7,6 +8,7 @@ from api.serializers.requisicao_rubrica_serializers import RequisicaoRubricaSeri
 
 
 class RequisicaoRubricaViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = RequisicaoRubrica.objects.all()
     serializer_class = RequisicaoRubricaSerializer
 

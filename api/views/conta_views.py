@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.conta import Conta
@@ -8,6 +9,7 @@ from api.serializers.conta_serializers import ContaSerializer, ListContaSerializ
 
 # Create your views here.
 class ContaViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Conta.objects.all()
     serializer_class = ContaSerializer
 

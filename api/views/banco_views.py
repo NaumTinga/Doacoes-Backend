@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.banco import Banco
@@ -8,6 +9,7 @@ from api.serializers.banco_serializers import BancoSerializer
 
 # Create your views here.
 class BancoViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Banco.objects.all()
     serializer_class = BancoSerializer
 

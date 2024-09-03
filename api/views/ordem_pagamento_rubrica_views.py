@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.ordem_pagamento_rubrica import OrderPagamentoRubrica
@@ -7,6 +8,7 @@ from api.serializers.ordem_pagamento_rubrica_serializers import OrderPagamentoRu
 
 
 class OrderPagamentoRubricaViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = OrderPagamentoRubrica.objects.all()
     serializer_class = OrderPagamentoRubricaSerializer
 

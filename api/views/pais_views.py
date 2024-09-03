@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.pais import Pais
@@ -8,6 +9,7 @@ from api.serializers.pais_serializers import PaisSerializer
 
 # Create your views here.
 class PaisViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Pais.objects.all()
     serializer_class = PaisSerializer
 

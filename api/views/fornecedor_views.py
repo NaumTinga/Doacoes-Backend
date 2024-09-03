@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.conta import Conta
@@ -9,6 +10,7 @@ from api.serializers.fornecedor_serializers import FornecedorSerializer, ListFor
 
 
 class FornecedorViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Fornecedor.objects.all()
     serializer_class = FornecedorSerializer
 

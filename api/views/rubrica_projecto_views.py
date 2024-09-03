@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.rubrica_projecto import RubricaProjecto
@@ -9,6 +10,7 @@ from api.serializers.sub_rubrica_serializers import ListSubRubricaSerializer
 
 
 class RubricaProjectoViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = RubricaProjecto.objects.all()
     serializer_class = RubricaProjectoSerializer
 

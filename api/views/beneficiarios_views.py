@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.beneficiario import Beneficiario
@@ -9,6 +10,7 @@ from api.serializers.conta_serializers import ContaSerializer, ListContaSerializ
 
 
 class BeneficiarioViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Beneficiario.objects.all()
     serializer_class = BeneficiarioSerializer
 

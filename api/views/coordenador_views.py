@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.coordenador import Coordenador
@@ -6,6 +7,7 @@ from api.serializers.coordenador_serializers import CoordenadorSerializer, ListC
 
 
 class CoordenadorViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Coordenador.objects.all()
     serializer_class = CoordenadorSerializer
 

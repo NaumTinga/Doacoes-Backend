@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.financiamento import Financiamento
@@ -6,6 +7,7 @@ from api.serializers.financiamento_serializers import FinanciamentoSerializer, L
 
 
 class FinanciamentoViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Financiamento.objects.all()
     serializer_class = FinanciamentoSerializer
 

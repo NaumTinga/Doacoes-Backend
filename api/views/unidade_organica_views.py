@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models.unidade_organica import UnidadeOrganica
@@ -6,6 +7,7 @@ from api.serializers.unidade_organica_serializers import UnidadeOrganicaSerializ
 
 
 class UnidadeOrganicaViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = UnidadeOrganica.objects.all()
     serializer_class = UnidadeOrganicaSerializer
 
