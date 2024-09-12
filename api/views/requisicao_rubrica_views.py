@@ -8,7 +8,7 @@ from api.serializers.requisicao_rubrica_serializers import RequisicaoRubricaSeri
 
 
 class RequisicaoRubricaViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     queryset = RequisicaoRubrica.objects.all()
     serializer_class = RequisicaoRubricaSerializer
 
